@@ -1,0 +1,110 @@
+# Student Management System Assignment
+
+This repository contains the solution for the Python Object-Oriented Programming (OOP) assignment.
+
+## 📄 Code Implementation
+
+```python
+class Student:
+    def __init__(self, name, age, course, marks):
+        """Initialize the student's attributes."""
+        self.name = name
+        self.age = age
+        self.course = course
+        self.marks = marks
+
+    def display_info(self):
+        """Print the student's information in a readable format."""
+        print(f"Name: {self.name}")
+        print(f"Age: {self.age}")
+        print(f"Course: {self.course}")
+        print(f"Marks: {self.marks}")
+
+    def is_passed(self):
+        """Check whether the student has passed (40 or above)."""
+        if self.marks >= 40:
+            print("Result: Passed")
+        else:
+            print("Result: Failed")
+
+    def update_marks(self, new_marks):
+        """Update the student's marks with the new marks provided."""
+        self.marks = new_marks
+
+    def get_grade(self):
+        """Return the student's grade based on their marks."""
+        if self.marks >= 90:
+            return "A"
+        elif self.marks >= 75:
+            return "B"
+        elif self.marks >= 60:
+            return "C"
+        elif self.marks >= 40:
+            return "D"
+        else:
+            return "F"
+
+
+# --- Main Program Execution ---
+if __name__ == "__main__":
+    # 1. Create 3 Student objects with different information
+    student1 = Student("Rahul", 20, "Python", 85)
+    student2 = Student("Priya", 21, "Data Science", 92)
+    student3 = Student("Amit", 19, "Python", 35)
+
+    students = [student1, student2, student3]
+
+    # 2. Display initial information, pass status, and grade for each student
+    for student in students:
+        student.display_info()
+        student.is_passed()
+        print(f"Grade: {student.get_grade()}")
+        print("-" * 30)  # Separator line for clean output
+
+    # 3. Update the marks of one student (Rahul)
+    print("Updating Rahul's marks...\n")
+    student1.update_marks(95)
+
+    # 4. Display Rahul's updated information and new grade
+    student1.display_info()
+    student1.is_passed()
+    print(f"Grade: {student1.get_grade()}")
+    print("-" * 30)
+```
+
+## 🖥️ Expected Console Output
+
+When you run the script, the output will look like this:
+
+```text
+Name: Rahul
+Age: 20
+Course: Python
+Marks: 85
+Result: Passed
+Grade: B
+------------------------------
+Name: Priya
+Age: 21
+Course: Data Science
+Marks: 92
+Result: Passed
+Grade: A
+------------------------------
+Name: Amit
+Age: 19
+Course: Python
+Marks: 35
+Result: Failed
+Grade: F
+------------------------------
+Updating Rahul's marks...
+
+Name: Rahul
+Age: 20
+Course: Python
+Marks: 95
+Result: Passed
+Grade: A
+------------------------------
+```
